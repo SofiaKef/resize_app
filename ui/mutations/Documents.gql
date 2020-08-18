@@ -4,6 +4,7 @@ mutation addDocument($title: String, $body: String) {
     isPublic
     title
     body
+    resized
     createdAt
     updatedAt
     owner
@@ -16,6 +17,7 @@ mutation updateDocument($_id: String!, $title: String, $body: String, $isPublic:
     isPublic
     title
     body
+    resized
     createdAt
     updatedAt
     owner
@@ -25,5 +27,12 @@ mutation updateDocument($_id: String!, $title: String, $body: String, $isPublic:
 mutation removeDocument($_id: String!) {
   removeDocument(_id: $_id) {
     _id
+  }
+}
+
+mutation resizeDocument($_id: String!, $body: String, $resized: String,) {
+  resizeDocument(_id: $_id, body: $body, resized: $resized) {
+    resized
+    updatedAt
   }
 }

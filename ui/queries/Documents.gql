@@ -5,8 +5,16 @@ query documents {
     _id
     isPublic
     title
+    body
+    resized
     updatedAt
     createdAt
+  }
+}
+
+query getIdFromBodyDoc($body: String) {
+  document(body: $body) {
+    ...DocumentAttributes
   }
 }
 
