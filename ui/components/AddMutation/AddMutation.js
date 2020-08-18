@@ -25,32 +25,30 @@ Docs.propTypes = {
 
 export default graphql(documents)(Docs);
 */
+const newTitle = 'this is title';
+const newBody = 'this is body';
 
-function AddMutation({ data, addDoc }) {
-  const newTitle = 'this is title';
-  const newBody = 'this is body';
-  return (
-    <React.Fragment>
-      <div>
-        {data &&
-          data.documents &&
-          data.documents.map(({ _id, title, createdAt, body }) => (
-            <div key={_id}>
-              <p>
-                Posted on
-                {monthDayYear(createdAt)}
-              </p>
-              <h2>{title}</h2>
-              <p>{body}</p>
-            </div>
-          ))}
-        <Button bsStyle="danger" onClick={() => addDoc({ variables: { newTitle, newBody } })}>
-          Delete Post
-        </Button>
-      </div>
-    </React.Fragment>
-  );
-}
+const AddMutation = ({ data, addDoc }) => (
+  <React.Fragment>
+    <div>
+      {data &&
+        data.documents &&
+        data.documents.map(({ _id, title, createdAt, body }) => (
+          <div key={_id}>
+            <p>
+              Posted on
+              {monthDayYear(createdAt)}
+            </p>
+            <h2>{title}</h2>
+            <p>{body}</p>
+          </div>
+        ))}
+      <Button bsStyle="danger" onClick={() => addDoc({ variables: { newTitle, newBody } })}>
+        Delete Post
+      </Button>
+    </div>
+  </React.Fragment>
+);
 
 export default compose(
   graphql(documents),

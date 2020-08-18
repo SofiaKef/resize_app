@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import calculateWinner from '../../../modules/calculateWinner.js';
 import Board from '../../components/Board';
 import AddMutation from '../../components/AddMutation/AddMutation.js';
-// import Documents from '../Documents/index.js'
+import Documents from '../Documents/index.js'
 
 // import Styles from './styles';
 
@@ -74,6 +74,7 @@ class Game extends React.Component {
           </div>
         </div>
         <AddMutation />
+        <Documents />
       </div>
     );
   }
