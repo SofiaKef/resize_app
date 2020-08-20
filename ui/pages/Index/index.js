@@ -1,8 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Button } from 'react-bootstrap';
+import { ApolloProvider } from 'react-apollo';
 import calculateWinner from '../../../modules/calculateWinner.js';
 import Board from '../../components/Board';
-
+import AddDocumentClass from '../../components/AddDocument/AddDocument.js';
 // import Styles from './styles';
 
 class Game extends React.Component {
@@ -60,6 +62,10 @@ class Game extends React.Component {
       status = `Next player: ${xIsNext ? 'X' : 'O'}`;
     }
 
+    
+    // <ApolloProvider client={apolloClient}>
+    // <AddDocument />, document.getElementById("root")
+
     return (
       <div className="game">
         <div className="game-board">
@@ -69,6 +75,7 @@ class Game extends React.Component {
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
+        <AddDocumentClass />
       </div>
     );
   }
