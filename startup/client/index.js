@@ -5,6 +5,7 @@ import { hydrate, render } from 'react-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -21,12 +22,14 @@ Meteor.startup(() => {
   const app = (
     <ThemeProvider theme={{}}>
       <ApolloProvider client={apolloClient}>
-        <GlobalStyle />
-        <BrowserRouter>
-          <Switch>
-            <App />
-          </Switch>
-        </BrowserRouter>
+        <ApolloHooksProvider client={apolloClient}>
+          <GlobalStyle />
+          <BrowserRouter>
+            <Switch>
+              <App />
+            </Switch>
+          </BrowserRouter>
+        </ApolloHooksProvider>
       </ApolloProvider>
     </ThemeProvider>
   );
