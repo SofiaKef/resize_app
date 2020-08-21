@@ -4,7 +4,8 @@ import { Button } from 'react-bootstrap';
 import { ApolloProvider } from 'react-apollo';
 import calculateWinner from '../../../modules/calculateWinner.js';
 import Board from '../../components/Board';
-import AddDocumentClass from '../../components/AddDocument/AddDocument.js';
+//import AddDocumentClass from '../../components/AddDocument/AddDocument.js';
+import GetDocuments from '../../components/AddDocument/AddDocument.js';
 // import Styles from './styles';
 
 class Game extends React.Component {
@@ -75,7 +76,8 @@ class Game extends React.Component {
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
-        <AddDocumentClass />
+        {/*<GetDocuments />
+        <AddDocuments /> */}
       </div>
     );
   }

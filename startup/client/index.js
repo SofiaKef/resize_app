@@ -4,7 +4,7 @@ import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider, withApollo } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
@@ -19,6 +19,7 @@ Accounts.onLogout(() => apolloClient.resetStore());
 
 Meteor.startup(() => {
   const target = document.getElementById('react-root');
+  //const AppWithApollo = withApollo(App);
   const app = (
     <ThemeProvider theme={{}}>
       <ApolloProvider client={apolloClient}>
@@ -26,7 +27,9 @@ Meteor.startup(() => {
           <GlobalStyle />
           <BrowserRouter>
             <Switch>
-              <App />
+              {/*<AppWithApollo>*/}
+                <App />
+              {/*</AppWithApollo>*/}
             </Switch>
           </BrowserRouter>
         </ApolloHooksProvider>
