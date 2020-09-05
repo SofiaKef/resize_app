@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import calculateWinner from '../../../modules/calculateWinner.js';
 import Board from '../../components/Board';
+import Images from '../../components/AddImages/AddImages.js';
 
 // import Styles from './styles';
 
@@ -61,14 +62,17 @@ class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+      <div>
+        <div className="game">
+          <div className="game-board">
+            <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
+        <Images />
       </div>
     );
   }
